@@ -10,14 +10,7 @@ d2_data=np.load('data_train_3d.npy')
 #d2_data=np.load('2D_data_dataset.npy')
 #d2_data_new=np.zeros((700,20,1077))
 
-'''count=0
 
-for i in range(10):
-    for j in range(70):
-        #print(count,i*100+j)
-        d2_data_new[count]=d2_data[i*100+j]
-        count=count+1
-'''
 
 class siamese_network(torch.nn.Module):
 
@@ -48,6 +41,7 @@ class siamese_network(torch.nn.Module):
 
 
 class contrastive_loss(torch.nn.Module):
+    #code referred from https://github.com/delijati/pytorch-siamese/blob/master/contrastive.py
     def __init__(self,margin=1):
         super(contrastive_loss,self).__init__()
         self.margin=margin
